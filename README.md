@@ -20,7 +20,7 @@ chmod +x run.sh
 ./run.sh
 ```
 
-## Generate Documentation
+## Generate Clients & Documentations
 
 ```
 ./docs.sh
