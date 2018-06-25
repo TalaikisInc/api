@@ -20,6 +20,12 @@ chmod +x run.sh
 ./run.sh
 ```
 
+## Generate Documentation
+
+```
+./docs.sh
+```
+
 ## License
 
 GPL v3.0
