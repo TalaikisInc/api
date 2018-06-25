@@ -15,6 +15,7 @@
 from __future__ import absolute_import
 
 # import models into model package
-from swagger_client.models.addrs import Addrs
-from swagger_client.models.blocks import Blocks
-from swagger_client.models.contracts import Contracts
+from swagger_client.models.args import Args
+from swagger_client.models.args_1 import Args1
+from swagger_client.models.args_2 import Args2
+from swagger_client.models.args_3 import Args3

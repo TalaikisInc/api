@@ -43,10 +43,34 @@ type APIClient struct {
 	common 	service 		// Reuse a single struct instead of allocating one for each service on the heap.
 
 	 // API Services
-	AddrsApi	*AddrsApiService
-	BlocksApi	*BlocksApiService
-	ContractsApi	*ContractsApiService
 	IntrospectionApi	*IntrospectionApiService
+	RpcArmorApi	*RpcArmorApiService
+	RpcCryptApi	*RpcCryptApiService
+	RpcDearmorApi	*RpcDearmorApiService
+	RpcDecryptApi	*RpcDecryptApiService
+	RpcDecryptIvApi	*RpcDecryptIvApiService
+	RpcDigestApi	*RpcDigestApiService
+	RpcEncryptApi	*RpcEncryptApiService
+	RpcEncryptIvApi	*RpcEncryptIvApiService
+	RpcGenRandomBytesApi	*RpcGenRandomBytesApiService
+	RpcGenRandomUuidApi	*RpcGenRandomUuidApiService
+	RpcGenSaltApi	*RpcGenSaltApiService
+	RpcHmacApi	*RpcHmacApiService
+	RpcLoginApi	*RpcLoginApiService
+	RpcPgpArmorHeadersApi	*RpcPgpArmorHeadersApiService
+	RpcPgpKeyIdApi	*RpcPgpKeyIdApiService
+	RpcPgpPubDecryptApi	*RpcPgpPubDecryptApiService
+	RpcPgpPubDecryptByteaApi	*RpcPgpPubDecryptByteaApiService
+	RpcPgpPubEncryptApi	*RpcPgpPubEncryptApiService
+	RpcPgpPubEncryptByteaApi	*RpcPgpPubEncryptByteaApiService
+	RpcPgpSymDecryptApi	*RpcPgpSymDecryptApiService
+	RpcPgpSymDecryptByteaApi	*RpcPgpSymDecryptByteaApiService
+	RpcPgpSymEncryptApi	*RpcPgpSymEncryptApiService
+	RpcPgpSymEncryptByteaApi	*RpcPgpSymEncryptByteaApiService
+	RpcRequestPasswordResetApi	*RpcRequestPasswordResetApiService
+	RpcResetPasswordApi	*RpcResetPasswordApiService
+	RpcSignupApi	*RpcSignupApiService
+	RpcUpdateUsersApi	*RpcUpdateUsersApiService
 }
 
 type service struct {
@@ -65,10 +89,34 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.AddrsApi = (*AddrsApiService)(&c.common)
-	c.BlocksApi = (*BlocksApiService)(&c.common)
-	c.ContractsApi = (*ContractsApiService)(&c.common)
 	c.IntrospectionApi = (*IntrospectionApiService)(&c.common)
+	c.RpcArmorApi = (*RpcArmorApiService)(&c.common)
+	c.RpcCryptApi = (*RpcCryptApiService)(&c.common)
+	c.RpcDearmorApi = (*RpcDearmorApiService)(&c.common)
+	c.RpcDecryptApi = (*RpcDecryptApiService)(&c.common)
+	c.RpcDecryptIvApi = (*RpcDecryptIvApiService)(&c.common)
+	c.RpcDigestApi = (*RpcDigestApiService)(&c.common)
+	c.RpcEncryptApi = (*RpcEncryptApiService)(&c.common)
+	c.RpcEncryptIvApi = (*RpcEncryptIvApiService)(&c.common)
+	c.RpcGenRandomBytesApi = (*RpcGenRandomBytesApiService)(&c.common)
+	c.RpcGenRandomUuidApi = (*RpcGenRandomUuidApiService)(&c.common)
+	c.RpcGenSaltApi = (*RpcGenSaltApiService)(&c.common)
+	c.RpcHmacApi = (*RpcHmacApiService)(&c.common)
+	c.RpcLoginApi = (*RpcLoginApiService)(&c.common)
+	c.RpcPgpArmorHeadersApi = (*RpcPgpArmorHeadersApiService)(&c.common)
+	c.RpcPgpKeyIdApi = (*RpcPgpKeyIdApiService)(&c.common)
+	c.RpcPgpPubDecryptApi = (*RpcPgpPubDecryptApiService)(&c.common)
+	c.RpcPgpPubDecryptByteaApi = (*RpcPgpPubDecryptByteaApiService)(&c.common)
+	c.RpcPgpPubEncryptApi = (*RpcPgpPubEncryptApiService)(&c.common)
+	c.RpcPgpPubEncryptByteaApi = (*RpcPgpPubEncryptByteaApiService)(&c.common)
+	c.RpcPgpSymDecryptApi = (*RpcPgpSymDecryptApiService)(&c.common)
+	c.RpcPgpSymDecryptByteaApi = (*RpcPgpSymDecryptByteaApiService)(&c.common)
+	c.RpcPgpSymEncryptApi = (*RpcPgpSymEncryptApiService)(&c.common)
+	c.RpcPgpSymEncryptByteaApi = (*RpcPgpSymEncryptByteaApiService)(&c.common)
+	c.RpcRequestPasswordResetApi = (*RpcRequestPasswordResetApiService)(&c.common)
+	c.RpcResetPasswordApi = (*RpcResetPasswordApiService)(&c.common)
+	c.RpcSignupApi = (*RpcSignupApiService)(&c.common)
+	c.RpcUpdateUsersApi = (*RpcUpdateUsersApiService)(&c.common)
 
 	return c
 }

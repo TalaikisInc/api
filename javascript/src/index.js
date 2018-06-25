@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Addrs', 'model/Blocks', 'model/Contracts', 'api/AddrsApi', 'api/BlocksApi', 'api/ContractsApi', 'api/IntrospectionApi'], factory);
+    define(['ApiClient', 'model/Args', 'model/Args1', 'model/Args2', 'model/Args3', 'api/IntrospectionApi', 'api/RpcArmorApi', 'api/RpcCryptApi', 'api/RpcDearmorApi', 'api/RpcDecryptApi', 'api/RpcDecryptIvApi', 'api/RpcDigestApi', 'api/RpcEncryptApi', 'api/RpcEncryptIvApi', 'api/RpcGenRandomBytesApi', 'api/RpcGenRandomUuidApi', 'api/RpcGenSaltApi', 'api/RpcHmacApi', 'api/RpcLoginApi', 'api/RpcPgpArmorHeadersApi', 'api/RpcPgpKeyIdApi', 'api/RpcPgpPubDecryptApi', 'api/RpcPgpPubDecryptByteaApi', 'api/RpcPgpPubEncryptApi', 'api/RpcPgpPubEncryptByteaApi', 'api/RpcPgpSymDecryptApi', 'api/RpcPgpSymDecryptByteaApi', 'api/RpcPgpSymEncryptApi', 'api/RpcPgpSymEncryptByteaApi', 'api/RpcRequestPasswordResetApi', 'api/RpcResetPasswordApi', 'api/RpcSignupApi', 'api/RpcUpdateUsersApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Addrs'), require('./model/Blocks'), require('./model/Contracts'), require('./api/AddrsApi'), require('./api/BlocksApi'), require('./api/ContractsApi'), require('./api/IntrospectionApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Args'), require('./model/Args1'), require('./model/Args2'), require('./model/Args3'), require('./api/IntrospectionApi'), require('./api/RpcArmorApi'), require('./api/RpcCryptApi'), require('./api/RpcDearmorApi'), require('./api/RpcDecryptApi'), require('./api/RpcDecryptIvApi'), require('./api/RpcDigestApi'), require('./api/RpcEncryptApi'), require('./api/RpcEncryptIvApi'), require('./api/RpcGenRandomBytesApi'), require('./api/RpcGenRandomUuidApi'), require('./api/RpcGenSaltApi'), require('./api/RpcHmacApi'), require('./api/RpcLoginApi'), require('./api/RpcPgpArmorHeadersApi'), require('./api/RpcPgpKeyIdApi'), require('./api/RpcPgpPubDecryptApi'), require('./api/RpcPgpPubDecryptByteaApi'), require('./api/RpcPgpPubEncryptApi'), require('./api/RpcPgpPubEncryptByteaApi'), require('./api/RpcPgpSymDecryptApi'), require('./api/RpcPgpSymDecryptByteaApi'), require('./api/RpcPgpSymEncryptApi'), require('./api/RpcPgpSymEncryptByteaApi'), require('./api/RpcRequestPasswordResetApi'), require('./api/RpcResetPasswordApi'), require('./api/RpcSignupApi'), require('./api/RpcUpdateUsersApi'));
   }
-}(function(ApiClient, Addrs, Blocks, Contracts, AddrsApi, BlocksApi, ContractsApi, IntrospectionApi) {
+}(function(ApiClient, Args, Args1, Args2, Args3, IntrospectionApi, RpcArmorApi, RpcCryptApi, RpcDearmorApi, RpcDecryptApi, RpcDecryptIvApi, RpcDigestApi, RpcEncryptApi, RpcEncryptIvApi, RpcGenRandomBytesApi, RpcGenRandomUuidApi, RpcGenSaltApi, RpcHmacApi, RpcLoginApi, RpcPgpArmorHeadersApi, RpcPgpKeyIdApi, RpcPgpPubDecryptApi, RpcPgpPubDecryptByteaApi, RpcPgpPubEncryptApi, RpcPgpPubEncryptByteaApi, RpcPgpSymDecryptApi, RpcPgpSymDecryptByteaApi, RpcPgpSymEncryptApi, RpcPgpSymEncryptByteaApi, RpcRequestPasswordResetApi, RpcResetPasswordApi, RpcSignupApi, RpcUpdateUsersApi) {
   'use strict';
 
   /**
@@ -62,40 +62,165 @@
      */
     ApiClient: ApiClient,
     /**
-     * The Addrs model constructor.
-     * @property {module:model/Addrs}
+     * The Args model constructor.
+     * @property {module:model/Args}
      */
-    Addrs: Addrs,
+    Args: Args,
     /**
-     * The Blocks model constructor.
-     * @property {module:model/Blocks}
+     * The Args1 model constructor.
+     * @property {module:model/Args1}
      */
-    Blocks: Blocks,
+    Args1: Args1,
     /**
-     * The Contracts model constructor.
-     * @property {module:model/Contracts}
+     * The Args2 model constructor.
+     * @property {module:model/Args2}
      */
-    Contracts: Contracts,
+    Args2: Args2,
     /**
-     * The AddrsApi service constructor.
-     * @property {module:api/AddrsApi}
+     * The Args3 model constructor.
+     * @property {module:model/Args3}
      */
-    AddrsApi: AddrsApi,
-    /**
-     * The BlocksApi service constructor.
-     * @property {module:api/BlocksApi}
-     */
-    BlocksApi: BlocksApi,
-    /**
-     * The ContractsApi service constructor.
-     * @property {module:api/ContractsApi}
-     */
-    ContractsApi: ContractsApi,
+    Args3: Args3,
     /**
      * The IntrospectionApi service constructor.
      * @property {module:api/IntrospectionApi}
      */
-    IntrospectionApi: IntrospectionApi
+    IntrospectionApi: IntrospectionApi,
+    /**
+     * The RpcArmorApi service constructor.
+     * @property {module:api/RpcArmorApi}
+     */
+    RpcArmorApi: RpcArmorApi,
+    /**
+     * The RpcCryptApi service constructor.
+     * @property {module:api/RpcCryptApi}
+     */
+    RpcCryptApi: RpcCryptApi,
+    /**
+     * The RpcDearmorApi service constructor.
+     * @property {module:api/RpcDearmorApi}
+     */
+    RpcDearmorApi: RpcDearmorApi,
+    /**
+     * The RpcDecryptApi service constructor.
+     * @property {module:api/RpcDecryptApi}
+     */
+    RpcDecryptApi: RpcDecryptApi,
+    /**
+     * The RpcDecryptIvApi service constructor.
+     * @property {module:api/RpcDecryptIvApi}
+     */
+    RpcDecryptIvApi: RpcDecryptIvApi,
+    /**
+     * The RpcDigestApi service constructor.
+     * @property {module:api/RpcDigestApi}
+     */
+    RpcDigestApi: RpcDigestApi,
+    /**
+     * The RpcEncryptApi service constructor.
+     * @property {module:api/RpcEncryptApi}
+     */
+    RpcEncryptApi: RpcEncryptApi,
+    /**
+     * The RpcEncryptIvApi service constructor.
+     * @property {module:api/RpcEncryptIvApi}
+     */
+    RpcEncryptIvApi: RpcEncryptIvApi,
+    /**
+     * The RpcGenRandomBytesApi service constructor.
+     * @property {module:api/RpcGenRandomBytesApi}
+     */
+    RpcGenRandomBytesApi: RpcGenRandomBytesApi,
+    /**
+     * The RpcGenRandomUuidApi service constructor.
+     * @property {module:api/RpcGenRandomUuidApi}
+     */
+    RpcGenRandomUuidApi: RpcGenRandomUuidApi,
+    /**
+     * The RpcGenSaltApi service constructor.
+     * @property {module:api/RpcGenSaltApi}
+     */
+    RpcGenSaltApi: RpcGenSaltApi,
+    /**
+     * The RpcHmacApi service constructor.
+     * @property {module:api/RpcHmacApi}
+     */
+    RpcHmacApi: RpcHmacApi,
+    /**
+     * The RpcLoginApi service constructor.
+     * @property {module:api/RpcLoginApi}
+     */
+    RpcLoginApi: RpcLoginApi,
+    /**
+     * The RpcPgpArmorHeadersApi service constructor.
+     * @property {module:api/RpcPgpArmorHeadersApi}
+     */
+    RpcPgpArmorHeadersApi: RpcPgpArmorHeadersApi,
+    /**
+     * The RpcPgpKeyIdApi service constructor.
+     * @property {module:api/RpcPgpKeyIdApi}
+     */
+    RpcPgpKeyIdApi: RpcPgpKeyIdApi,
+    /**
+     * The RpcPgpPubDecryptApi service constructor.
+     * @property {module:api/RpcPgpPubDecryptApi}
+     */
+    RpcPgpPubDecryptApi: RpcPgpPubDecryptApi,
+    /**
+     * The RpcPgpPubDecryptByteaApi service constructor.
+     * @property {module:api/RpcPgpPubDecryptByteaApi}
+     */
+    RpcPgpPubDecryptByteaApi: RpcPgpPubDecryptByteaApi,
+    /**
+     * The RpcPgpPubEncryptApi service constructor.
+     * @property {module:api/RpcPgpPubEncryptApi}
+     */
+    RpcPgpPubEncryptApi: RpcPgpPubEncryptApi,
+    /**
+     * The RpcPgpPubEncryptByteaApi service constructor.
+     * @property {module:api/RpcPgpPubEncryptByteaApi}
+     */
+    RpcPgpPubEncryptByteaApi: RpcPgpPubEncryptByteaApi,
+    /**
+     * The RpcPgpSymDecryptApi service constructor.
+     * @property {module:api/RpcPgpSymDecryptApi}
+     */
+    RpcPgpSymDecryptApi: RpcPgpSymDecryptApi,
+    /**
+     * The RpcPgpSymDecryptByteaApi service constructor.
+     * @property {module:api/RpcPgpSymDecryptByteaApi}
+     */
+    RpcPgpSymDecryptByteaApi: RpcPgpSymDecryptByteaApi,
+    /**
+     * The RpcPgpSymEncryptApi service constructor.
+     * @property {module:api/RpcPgpSymEncryptApi}
+     */
+    RpcPgpSymEncryptApi: RpcPgpSymEncryptApi,
+    /**
+     * The RpcPgpSymEncryptByteaApi service constructor.
+     * @property {module:api/RpcPgpSymEncryptByteaApi}
+     */
+    RpcPgpSymEncryptByteaApi: RpcPgpSymEncryptByteaApi,
+    /**
+     * The RpcRequestPasswordResetApi service constructor.
+     * @property {module:api/RpcRequestPasswordResetApi}
+     */
+    RpcRequestPasswordResetApi: RpcRequestPasswordResetApi,
+    /**
+     * The RpcResetPasswordApi service constructor.
+     * @property {module:api/RpcResetPasswordApi}
+     */
+    RpcResetPasswordApi: RpcResetPasswordApi,
+    /**
+     * The RpcSignupApi service constructor.
+     * @property {module:api/RpcSignupApi}
+     */
+    RpcSignupApi: RpcSignupApi,
+    /**
+     * The RpcUpdateUsersApi service constructor.
+     * @property {module:api/RpcUpdateUsersApi}
+     */
+    RpcUpdateUsersApi: RpcUpdateUsersApi
   };
 
   return exports;

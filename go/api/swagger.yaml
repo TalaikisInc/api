@@ -29,522 +29,730 @@ paths:
       responses:
         200:
           description: "OK"
-  /addrs:
-    get:
+  /rpc/crypt:
+    post:
       tags:
-      - "addrs"
+      - "(rpc) crypt"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
       parameters:
-      - name: "addr"
-        in: "query"
-        required: false
-        type: "string"
-        format: "character varying"
-        x-exportParamName: "Addr"
-      - name: "balance"
-        in: "query"
-        required: false
-        type: "string"
-        format: "numeric"
-        x-exportParamName: "Balance"
-      - name: "select"
-        in: "query"
-        description: "Filtering Columns"
-        required: false
-        type: "string"
-        x-exportParamName: "Select_"
-      - name: "order"
-        in: "query"
-        description: "Ordering"
-        required: false
-        type: "string"
-        x-exportParamName: "Order"
-      - name: "Range"
-        in: "header"
-        description: "Limiting and Pagination"
-        required: false
-        type: "string"
-        x-exportParamName: "Range_"
-      - name: "Range-Unit"
-        in: "header"
-        description: "Limiting and Pagination"
-        required: false
-        type: "string"
-        default: "items"
-        x-exportParamName: "RangeUnit"
-      - name: "offset"
-        in: "query"
-        description: "Limiting and Pagination"
-        required: false
-        type: "string"
-        x-exportParamName: "Offset"
-      - name: "limit"
-        in: "query"
-        description: "Limiting and Pagination"
-        required: false
-        type: "string"
-        x-exportParamName: "Limit"
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
       - name: "Prefer"
         in: "header"
         description: "Preference"
         required: false
         type: "string"
         enum:
-        - "count=none"
+        - "params=single-object"
         x-exportParamName: "Prefer"
       responses:
         200:
           description: "OK"
-          schema:
-            $ref: "#/definitions/addrs"
-        206:
-          description: "Partial Content"
+  /rpc/pgp_sym_encrypt:
     post:
       tags:
-      - "addrs"
+      - "(rpc) pgp_sym_encrypt"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
       parameters:
       - in: "body"
-        name: "addrs"
-        description: "addrs"
-        required: false
+        name: "args"
+        required: true
         schema:
-          $ref: "#/definitions/addrs"
-        x-exportParamName: "Addrs"
+          type: "object"
+        x-exportParamName: "Args"
       - name: "Prefer"
         in: "header"
         description: "Preference"
         required: false
         type: "string"
         enum:
-        - "return=representation"
-        - "return=minimal"
-        - "return=none"
-        x-exportParamName: "Prefer"
-      responses:
-        201:
-          description: "Created"
-    delete:
-      tags:
-      - "addrs"
-      parameters:
-      - name: "addr"
-        in: "query"
-        required: false
-        type: "string"
-        format: "character varying"
-        x-exportParamName: "Addr"
-      - name: "balance"
-        in: "query"
-        required: false
-        type: "string"
-        format: "numeric"
-        x-exportParamName: "Balance"
-      - name: "Prefer"
-        in: "header"
-        description: "Preference"
-        required: false
-        type: "string"
-        enum:
-        - "return=representation"
-        - "return=minimal"
-        - "return=none"
-        x-exportParamName: "Prefer"
-      responses:
-        204:
-          description: "No Content"
-    patch:
-      tags:
-      - "addrs"
-      parameters:
-      - name: "addr"
-        in: "query"
-        required: false
-        type: "string"
-        format: "character varying"
-        x-exportParamName: "Addr"
-      - name: "balance"
-        in: "query"
-        required: false
-        type: "string"
-        format: "numeric"
-        x-exportParamName: "Balance"
-      - in: "body"
-        name: "addrs"
-        description: "addrs"
-        required: false
-        schema:
-          $ref: "#/definitions/addrs"
-        x-exportParamName: "Addrs"
-      - name: "Prefer"
-        in: "header"
-        description: "Preference"
-        required: false
-        type: "string"
-        enum:
-        - "return=representation"
-        - "return=minimal"
-        - "return=none"
-        x-exportParamName: "Prefer"
-      responses:
-        204:
-          description: "No Content"
-  /blocks:
-    get:
-      tags:
-      - "blocks"
-      parameters:
-      - name: "block"
-        in: "query"
-        required: false
-        type: "string"
-        format: "integer"
-        x-exportParamName: "Block"
-      - name: "select"
-        in: "query"
-        description: "Filtering Columns"
-        required: false
-        type: "string"
-        x-exportParamName: "Select_"
-      - name: "order"
-        in: "query"
-        description: "Ordering"
-        required: false
-        type: "string"
-        x-exportParamName: "Order"
-      - name: "Range"
-        in: "header"
-        description: "Limiting and Pagination"
-        required: false
-        type: "string"
-        x-exportParamName: "Range_"
-      - name: "Range-Unit"
-        in: "header"
-        description: "Limiting and Pagination"
-        required: false
-        type: "string"
-        default: "items"
-        x-exportParamName: "RangeUnit"
-      - name: "offset"
-        in: "query"
-        description: "Limiting and Pagination"
-        required: false
-        type: "string"
-        x-exportParamName: "Offset"
-      - name: "limit"
-        in: "query"
-        description: "Limiting and Pagination"
-        required: false
-        type: "string"
-        x-exportParamName: "Limit"
-      - name: "Prefer"
-        in: "header"
-        description: "Preference"
-        required: false
-        type: "string"
-        enum:
-        - "count=none"
+        - "params=single-object"
         x-exportParamName: "Prefer"
       responses:
         200:
           description: "OK"
-          schema:
-            $ref: "#/definitions/blocks"
-        206:
-          description: "Partial Content"
+  /rpc/encrypt_iv:
     post:
       tags:
-      - "blocks"
+      - "(rpc) encrypt_iv"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
       parameters:
       - in: "body"
-        name: "blocks"
-        description: "blocks"
-        required: false
+        name: "args"
+        required: true
         schema:
-          $ref: "#/definitions/blocks"
-        x-exportParamName: "Blocks"
+          type: "object"
+        x-exportParamName: "Args"
       - name: "Prefer"
         in: "header"
         description: "Preference"
         required: false
         type: "string"
         enum:
-        - "return=representation"
-        - "return=minimal"
-        - "return=none"
-        x-exportParamName: "Prefer"
-      responses:
-        201:
-          description: "Created"
-    delete:
-      tags:
-      - "blocks"
-      parameters:
-      - name: "block"
-        in: "query"
-        required: false
-        type: "string"
-        format: "integer"
-        x-exportParamName: "Block"
-      - name: "Prefer"
-        in: "header"
-        description: "Preference"
-        required: false
-        type: "string"
-        enum:
-        - "return=representation"
-        - "return=minimal"
-        - "return=none"
-        x-exportParamName: "Prefer"
-      responses:
-        204:
-          description: "No Content"
-    patch:
-      tags:
-      - "blocks"
-      parameters:
-      - name: "block"
-        in: "query"
-        required: false
-        type: "string"
-        format: "integer"
-        x-exportParamName: "Block"
-      - in: "body"
-        name: "blocks"
-        description: "blocks"
-        required: false
-        schema:
-          $ref: "#/definitions/blocks"
-        x-exportParamName: "Blocks"
-      - name: "Prefer"
-        in: "header"
-        description: "Preference"
-        required: false
-        type: "string"
-        enum:
-        - "return=representation"
-        - "return=minimal"
-        - "return=none"
-        x-exportParamName: "Prefer"
-      responses:
-        204:
-          description: "No Content"
-  /contracts:
-    get:
-      tags:
-      - "contracts"
-      parameters:
-      - name: "addr"
-        in: "query"
-        required: false
-        type: "string"
-        format: "character varying"
-        x-exportParamName: "Addr"
-      - name: "bytecode"
-        in: "query"
-        required: false
-        type: "string"
-        format: "text"
-        x-exportParamName: "Bytecode"
-      - name: "balance"
-        in: "query"
-        required: false
-        type: "string"
-        format: "numeric"
-        x-exportParamName: "Balance"
-      - name: "select"
-        in: "query"
-        description: "Filtering Columns"
-        required: false
-        type: "string"
-        x-exportParamName: "Select_"
-      - name: "order"
-        in: "query"
-        description: "Ordering"
-        required: false
-        type: "string"
-        x-exportParamName: "Order"
-      - name: "Range"
-        in: "header"
-        description: "Limiting and Pagination"
-        required: false
-        type: "string"
-        x-exportParamName: "Range_"
-      - name: "Range-Unit"
-        in: "header"
-        description: "Limiting and Pagination"
-        required: false
-        type: "string"
-        default: "items"
-        x-exportParamName: "RangeUnit"
-      - name: "offset"
-        in: "query"
-        description: "Limiting and Pagination"
-        required: false
-        type: "string"
-        x-exportParamName: "Offset"
-      - name: "limit"
-        in: "query"
-        description: "Limiting and Pagination"
-        required: false
-        type: "string"
-        x-exportParamName: "Limit"
-      - name: "Prefer"
-        in: "header"
-        description: "Preference"
-        required: false
-        type: "string"
-        enum:
-        - "count=none"
+        - "params=single-object"
         x-exportParamName: "Prefer"
       responses:
         200:
           description: "OK"
-          schema:
-            $ref: "#/definitions/contracts"
-        206:
-          description: "Partial Content"
+  /rpc/encrypt:
     post:
       tags:
-      - "contracts"
+      - "(rpc) encrypt"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
       parameters:
       - in: "body"
-        name: "contracts"
-        description: "contracts"
-        required: false
+        name: "args"
+        required: true
         schema:
-          $ref: "#/definitions/contracts"
-        x-exportParamName: "Contracts"
+          type: "object"
+        x-exportParamName: "Args"
       - name: "Prefer"
         in: "header"
         description: "Preference"
         required: false
         type: "string"
         enum:
-        - "return=representation"
-        - "return=minimal"
-        - "return=none"
+        - "params=single-object"
         x-exportParamName: "Prefer"
       responses:
-        201:
-          description: "Created"
-    delete:
+        200:
+          description: "OK"
+  /rpc/pgp_pub_encrypt:
+    post:
       tags:
-      - "contracts"
+      - "(rpc) pgp_pub_encrypt"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
       parameters:
-      - name: "addr"
-        in: "query"
-        required: false
-        type: "string"
-        format: "character varying"
-        x-exportParamName: "Addr"
-      - name: "bytecode"
-        in: "query"
-        required: false
-        type: "string"
-        format: "text"
-        x-exportParamName: "Bytecode"
-      - name: "balance"
-        in: "query"
-        required: false
-        type: "string"
-        format: "numeric"
-        x-exportParamName: "Balance"
-      - name: "Prefer"
-        in: "header"
-        description: "Preference"
-        required: false
-        type: "string"
-        enum:
-        - "return=representation"
-        - "return=minimal"
-        - "return=none"
-        x-exportParamName: "Prefer"
-      responses:
-        204:
-          description: "No Content"
-    patch:
-      tags:
-      - "contracts"
-      parameters:
-      - name: "addr"
-        in: "query"
-        required: false
-        type: "string"
-        format: "character varying"
-        x-exportParamName: "Addr"
-      - name: "bytecode"
-        in: "query"
-        required: false
-        type: "string"
-        format: "text"
-        x-exportParamName: "Bytecode"
-      - name: "balance"
-        in: "query"
-        required: false
-        type: "string"
-        format: "numeric"
-        x-exportParamName: "Balance"
       - in: "body"
-        name: "contracts"
-        description: "contracts"
-        required: false
+        name: "args"
+        required: true
         schema:
-          $ref: "#/definitions/contracts"
-        x-exportParamName: "Contracts"
+          type: "object"
+        x-exportParamName: "Args"
       - name: "Prefer"
         in: "header"
         description: "Preference"
         required: false
         type: "string"
         enum:
-        - "return=representation"
-        - "return=minimal"
-        - "return=none"
+        - "params=single-object"
         x-exportParamName: "Prefer"
       responses:
-        204:
-          description: "No Content"
+        200:
+          description: "OK"
+  /rpc/gen_random_uuid:
+    post:
+      tags:
+      - "(rpc) gen_random_uuid"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/reset_password:
+    post:
+      tags:
+      - "(rpc) reset_password"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          $ref: "#/definitions/args"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/pgp_armor_headers:
+    post:
+      tags:
+      - "(rpc) pgp_armor_headers"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/pgp_sym_encrypt_bytea:
+    post:
+      tags:
+      - "(rpc) pgp_sym_encrypt_bytea"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/pgp_pub_encrypt_bytea:
+    post:
+      tags:
+      - "(rpc) pgp_pub_encrypt_bytea"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/armor:
+    post:
+      tags:
+      - "(rpc) armor"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/signup:
+    post:
+      tags:
+      - "(rpc) signup"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          $ref: "#/definitions/args_1"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/update_users:
+    post:
+      tags:
+      - "(rpc) update_users"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/hmac:
+    post:
+      tags:
+      - "(rpc) hmac"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/dearmor:
+    post:
+      tags:
+      - "(rpc) dearmor"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/pgp_sym_decrypt:
+    post:
+      tags:
+      - "(rpc) pgp_sym_decrypt"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/pgp_key_id:
+    post:
+      tags:
+      - "(rpc) pgp_key_id"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/decrypt_iv:
+    post:
+      tags:
+      - "(rpc) decrypt_iv"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/decrypt:
+    post:
+      tags:
+      - "(rpc) decrypt"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/pgp_pub_decrypt:
+    post:
+      tags:
+      - "(rpc) pgp_pub_decrypt"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/digest:
+    post:
+      tags:
+      - "(rpc) digest"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/request_password_reset:
+    post:
+      tags:
+      - "(rpc) request_password_reset"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          $ref: "#/definitions/args_2"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/login:
+    post:
+      tags:
+      - "(rpc) login"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          $ref: "#/definitions/args_3"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/gen_random_bytes:
+    post:
+      tags:
+      - "(rpc) gen_random_bytes"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/pgp_sym_decrypt_bytea:
+    post:
+      tags:
+      - "(rpc) pgp_sym_decrypt_bytea"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/pgp_pub_decrypt_bytea:
+    post:
+      tags:
+      - "(rpc) pgp_pub_decrypt_bytea"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
+  /rpc/gen_salt:
+    post:
+      tags:
+      - "(rpc) gen_salt"
+      produces:
+      - "application/json"
+      - "application/vnd.pgrst.object+json"
+      parameters:
+      - in: "body"
+        name: "args"
+        required: true
+        schema:
+          type: "object"
+        x-exportParamName: "Args"
+      - name: "Prefer"
+        in: "header"
+        description: "Preference"
+        required: false
+        type: "string"
+        enum:
+        - "params=single-object"
+        x-exportParamName: "Prefer"
+      responses:
+        200:
+          description: "OK"
 definitions:
-  addrs:
+  args:
     type: "object"
+    required:
+    - "email"
+    - "pass"
+    - "token"
     properties:
-      addr:
-        type: "string"
-        format: "character varying"
-        description: "Note:\nThis is a Primary Key.<pk/>"
-        maxLength: 42
-      balance:
-        type: "number"
-        format: "numeric"
-    example:
-      balance: 0.80082819046101150206595775671303272247314453125
-      addr: "addr"
-  blocks:
-    type: "object"
-    properties:
-      block:
-        type: "integer"
-        format: "integer"
-        description: "Note:\nThis is a Primary Key.<pk/>"
-    example:
-      block: 0
-  contracts:
-    type: "object"
-    properties:
-      addr:
-        type: "string"
-        format: "character varying"
-        description: "Note:\nThis is a Primary Key.<pk/>"
-        maxLength: 42
-      bytecode:
+      email:
         type: "string"
         format: "text"
-      balance:
-        type: "number"
-        format: "numeric"
-    example:
-      bytecode: "bytecode"
-      balance: 0.80082819046101150206595775671303272247314453125
-      addr: "addr"
+      token:
+        type: "string"
+        format: "uuid"
+      pass:
+        type: "string"
+        format: "text"
+  args_1:
+    type: "object"
+    required:
+    - "email"
+    - "pass"
+    properties:
+      email:
+        type: "string"
+        format: "text"
+      pass:
+        type: "string"
+        format: "text"
+  args_3:
+    type: "object"
+    required:
+    - "email"
+    - "pass"
+    properties:
+      email:
+        type: "string"
+        format: "text"
+      pass:
+        type: "string"
+        format: "text"
+  args_2:
+    type: "object"
+    required:
+    - "email"
+    properties:
+      email:
+        type: "string"
+        format: "text"
 parameters:
   preferParams:
     name: "Prefer"
@@ -554,6 +762,7 @@ parameters:
     type: "string"
     enum:
     - "params=single-object"
+    x-exportParamName: "Prefer"
   preferReturn:
     name: "Prefer"
     in: "header"
@@ -564,7 +773,6 @@ parameters:
     - "return=representation"
     - "return=minimal"
     - "return=none"
-    x-exportParamName: "Prefer"
   preferCount:
     name: "Prefer"
     in: "header"
@@ -573,28 +781,24 @@ parameters:
     type: "string"
     enum:
     - "count=none"
-    x-exportParamName: "Prefer"
   select:
     name: "select"
     in: "query"
     description: "Filtering Columns"
     required: false
     type: "string"
-    x-exportParamName: "Select_"
   order:
     name: "order"
     in: "query"
     description: "Ordering"
     required: false
     type: "string"
-    x-exportParamName: "Order"
   range:
     name: "Range"
     in: "header"
     description: "Limiting and Pagination"
     required: false
     type: "string"
-    x-exportParamName: "Range_"
   rangeUnit:
     name: "Range-Unit"
     in: "header"
@@ -602,87 +806,18 @@ parameters:
     required: false
     type: "string"
     default: "items"
-    x-exportParamName: "RangeUnit"
   offset:
     name: "offset"
     in: "query"
     description: "Limiting and Pagination"
     required: false
     type: "string"
-    x-exportParamName: "Offset"
   limit:
     name: "limit"
     in: "query"
     description: "Limiting and Pagination"
     required: false
     type: "string"
-    x-exportParamName: "Limit"
-  body.addrs:
-    in: "body"
-    name: "addrs"
-    description: "addrs"
-    required: false
-    schema:
-      $ref: "#/definitions/addrs"
-    x-exportParamName: "Addrs"
-  rowFilter.addrs.addr:
-    name: "addr"
-    in: "query"
-    required: false
-    type: "string"
-    format: "character varying"
-    x-exportParamName: "Addr"
-  rowFilter.addrs.balance:
-    name: "balance"
-    in: "query"
-    required: false
-    type: "string"
-    format: "numeric"
-    x-exportParamName: "Balance"
-  body.blocks:
-    in: "body"
-    name: "blocks"
-    description: "blocks"
-    required: false
-    schema:
-      $ref: "#/definitions/blocks"
-    x-exportParamName: "Blocks"
-  rowFilter.blocks.block:
-    name: "block"
-    in: "query"
-    required: false
-    type: "string"
-    format: "integer"
-    x-exportParamName: "Block"
-  body.contracts:
-    in: "body"
-    name: "contracts"
-    description: "contracts"
-    required: false
-    schema:
-      $ref: "#/definitions/contracts"
-    x-exportParamName: "Contracts"
-  rowFilter.contracts.addr:
-    name: "addr"
-    in: "query"
-    required: false
-    type: "string"
-    format: "character varying"
-    x-exportParamName: "Addr"
-  rowFilter.contracts.bytecode:
-    name: "bytecode"
-    in: "query"
-    required: false
-    type: "string"
-    format: "text"
-    x-exportParamName: "Bytecode"
-  rowFilter.contracts.balance:
-    name: "balance"
-    in: "query"
-    required: false
-    type: "string"
-    format: "numeric"
-    x-exportParamName: "Balance"
 externalDocs:
   description: "PostgREST Documentation"
   url: "https://postgrest.org/en/v5.0/api.html"

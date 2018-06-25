@@ -21,26 +21,42 @@ All URIs are relative to *http://0.0.0.0:3000*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AddrsApi* | [**AddrsDelete**](docs/AddrsApi.md#addrsdelete) | **Delete** /addrs | 
-*AddrsApi* | [**AddrsGet**](docs/AddrsApi.md#addrsget) | **Get** /addrs | 
-*AddrsApi* | [**AddrsPatch**](docs/AddrsApi.md#addrspatch) | **Patch** /addrs | 
-*AddrsApi* | [**AddrsPost**](docs/AddrsApi.md#addrspost) | **Post** /addrs | 
-*BlocksApi* | [**BlocksDelete**](docs/BlocksApi.md#blocksdelete) | **Delete** /blocks | 
-*BlocksApi* | [**BlocksGet**](docs/BlocksApi.md#blocksget) | **Get** /blocks | 
-*BlocksApi* | [**BlocksPatch**](docs/BlocksApi.md#blockspatch) | **Patch** /blocks | 
-*BlocksApi* | [**BlocksPost**](docs/BlocksApi.md#blockspost) | **Post** /blocks | 
-*ContractsApi* | [**ContractsDelete**](docs/ContractsApi.md#contractsdelete) | **Delete** /contracts | 
-*ContractsApi* | [**ContractsGet**](docs/ContractsApi.md#contractsget) | **Get** /contracts | 
-*ContractsApi* | [**ContractsPatch**](docs/ContractsApi.md#contractspatch) | **Patch** /contracts | 
-*ContractsApi* | [**ContractsPost**](docs/ContractsApi.md#contractspost) | **Post** /contracts | 
 *IntrospectionApi* | [**RootGet**](docs/IntrospectionApi.md#rootget) | **Get** / | OpenAPI description (this document)
+*RpcArmorApi* | [**RpcArmorPost**](docs/RpcArmorApi.md#rpcarmorpost) | **Post** /rpc/armor | 
+*RpcCryptApi* | [**RpcCryptPost**](docs/RpcCryptApi.md#rpccryptpost) | **Post** /rpc/crypt | 
+*RpcDearmorApi* | [**RpcDearmorPost**](docs/RpcDearmorApi.md#rpcdearmorpost) | **Post** /rpc/dearmor | 
+*RpcDecryptApi* | [**RpcDecryptPost**](docs/RpcDecryptApi.md#rpcdecryptpost) | **Post** /rpc/decrypt | 
+*RpcDecryptIvApi* | [**RpcDecryptIvPost**](docs/RpcDecryptIvApi.md#rpcdecryptivpost) | **Post** /rpc/decrypt_iv | 
+*RpcDigestApi* | [**RpcDigestPost**](docs/RpcDigestApi.md#rpcdigestpost) | **Post** /rpc/digest | 
+*RpcEncryptApi* | [**RpcEncryptPost**](docs/RpcEncryptApi.md#rpcencryptpost) | **Post** /rpc/encrypt | 
+*RpcEncryptIvApi* | [**RpcEncryptIvPost**](docs/RpcEncryptIvApi.md#rpcencryptivpost) | **Post** /rpc/encrypt_iv | 
+*RpcGenRandomBytesApi* | [**RpcGenRandomBytesPost**](docs/RpcGenRandomBytesApi.md#rpcgenrandombytespost) | **Post** /rpc/gen_random_bytes | 
+*RpcGenRandomUuidApi* | [**RpcGenRandomUuidPost**](docs/RpcGenRandomUuidApi.md#rpcgenrandomuuidpost) | **Post** /rpc/gen_random_uuid | 
+*RpcGenSaltApi* | [**RpcGenSaltPost**](docs/RpcGenSaltApi.md#rpcgensaltpost) | **Post** /rpc/gen_salt | 
+*RpcHmacApi* | [**RpcHmacPost**](docs/RpcHmacApi.md#rpchmacpost) | **Post** /rpc/hmac | 
+*RpcLoginApi* | [**RpcLoginPost**](docs/RpcLoginApi.md#rpcloginpost) | **Post** /rpc/login | 
+*RpcPgpArmorHeadersApi* | [**RpcPgpArmorHeadersPost**](docs/RpcPgpArmorHeadersApi.md#rpcpgparmorheaderspost) | **Post** /rpc/pgp_armor_headers | 
+*RpcPgpKeyIdApi* | [**RpcPgpKeyIdPost**](docs/RpcPgpKeyIdApi.md#rpcpgpkeyidpost) | **Post** /rpc/pgp_key_id | 
+*RpcPgpPubDecryptApi* | [**RpcPgpPubDecryptPost**](docs/RpcPgpPubDecryptApi.md#rpcpgppubdecryptpost) | **Post** /rpc/pgp_pub_decrypt | 
+*RpcPgpPubDecryptByteaApi* | [**RpcPgpPubDecryptByteaPost**](docs/RpcPgpPubDecryptByteaApi.md#rpcpgppubdecryptbyteapost) | **Post** /rpc/pgp_pub_decrypt_bytea | 
+*RpcPgpPubEncryptApi* | [**RpcPgpPubEncryptPost**](docs/RpcPgpPubEncryptApi.md#rpcpgppubencryptpost) | **Post** /rpc/pgp_pub_encrypt | 
+*RpcPgpPubEncryptByteaApi* | [**RpcPgpPubEncryptByteaPost**](docs/RpcPgpPubEncryptByteaApi.md#rpcpgppubencryptbyteapost) | **Post** /rpc/pgp_pub_encrypt_bytea | 
+*RpcPgpSymDecryptApi* | [**RpcPgpSymDecryptPost**](docs/RpcPgpSymDecryptApi.md#rpcpgpsymdecryptpost) | **Post** /rpc/pgp_sym_decrypt | 
+*RpcPgpSymDecryptByteaApi* | [**RpcPgpSymDecryptByteaPost**](docs/RpcPgpSymDecryptByteaApi.md#rpcpgpsymdecryptbyteapost) | **Post** /rpc/pgp_sym_decrypt_bytea | 
+*RpcPgpSymEncryptApi* | [**RpcPgpSymEncryptPost**](docs/RpcPgpSymEncryptApi.md#rpcpgpsymencryptpost) | **Post** /rpc/pgp_sym_encrypt | 
+*RpcPgpSymEncryptByteaApi* | [**RpcPgpSymEncryptByteaPost**](docs/RpcPgpSymEncryptByteaApi.md#rpcpgpsymencryptbyteapost) | **Post** /rpc/pgp_sym_encrypt_bytea | 
+*RpcRequestPasswordResetApi* | [**RpcRequestPasswordResetPost**](docs/RpcRequestPasswordResetApi.md#rpcrequestpasswordresetpost) | **Post** /rpc/request_password_reset | 
+*RpcResetPasswordApi* | [**RpcResetPasswordPost**](docs/RpcResetPasswordApi.md#rpcresetpasswordpost) | **Post** /rpc/reset_password | 
+*RpcSignupApi* | [**RpcSignupPost**](docs/RpcSignupApi.md#rpcsignuppost) | **Post** /rpc/signup | 
+*RpcUpdateUsersApi* | [**RpcUpdateUsersPost**](docs/RpcUpdateUsersApi.md#rpcupdateuserspost) | **Post** /rpc/update_users | 
 
 
 ## Documentation For Models
 
- - [Addrs](docs/Addrs.md)
- - [Blocks](docs/Blocks.md)
- - [Contracts](docs/Contracts.md)
+ - [Args](docs/Args.md)
+ - [Args1](docs/Args1.md)
+ - [Args2](docs/Args2.md)
+ - [Args3](docs/Args3.md)
 
 
 ## Documentation For Authorization

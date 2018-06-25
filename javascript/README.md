@@ -95,13 +95,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```javascript
 var PostgRestApi = require('postg_rest_api');
 
-var api = new PostgRestApi.AddrsApi()
-
-var opts = { 
-  'addr': "addr_example", // {String} 
-  'balance': "balance_example", // {String} 
-  'prefer': "prefer_example" // {String} Preference
-};
+var api = new PostgRestApi.IntrospectionApi()
 
 var callback = function(error, data, response) {
   if (error) {
@@ -110,7 +104,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.addrsDelete(opts, callback);
+api.rootGet(callback);
 
 ```
 
@@ -120,26 +114,42 @@ All URIs are relative to *http://0.0.0.0:3000*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*PostgRestApi.AddrsApi* | [**addrsDelete**](docs/AddrsApi.md#addrsDelete) | **DELETE** /addrs | 
-*PostgRestApi.AddrsApi* | [**addrsGet**](docs/AddrsApi.md#addrsGet) | **GET** /addrs | 
-*PostgRestApi.AddrsApi* | [**addrsPatch**](docs/AddrsApi.md#addrsPatch) | **PATCH** /addrs | 
-*PostgRestApi.AddrsApi* | [**addrsPost**](docs/AddrsApi.md#addrsPost) | **POST** /addrs | 
-*PostgRestApi.BlocksApi* | [**blocksDelete**](docs/BlocksApi.md#blocksDelete) | **DELETE** /blocks | 
-*PostgRestApi.BlocksApi* | [**blocksGet**](docs/BlocksApi.md#blocksGet) | **GET** /blocks | 
-*PostgRestApi.BlocksApi* | [**blocksPatch**](docs/BlocksApi.md#blocksPatch) | **PATCH** /blocks | 
-*PostgRestApi.BlocksApi* | [**blocksPost**](docs/BlocksApi.md#blocksPost) | **POST** /blocks | 
-*PostgRestApi.ContractsApi* | [**contractsDelete**](docs/ContractsApi.md#contractsDelete) | **DELETE** /contracts | 
-*PostgRestApi.ContractsApi* | [**contractsGet**](docs/ContractsApi.md#contractsGet) | **GET** /contracts | 
-*PostgRestApi.ContractsApi* | [**contractsPatch**](docs/ContractsApi.md#contractsPatch) | **PATCH** /contracts | 
-*PostgRestApi.ContractsApi* | [**contractsPost**](docs/ContractsApi.md#contractsPost) | **POST** /contracts | 
 *PostgRestApi.IntrospectionApi* | [**rootGet**](docs/IntrospectionApi.md#rootGet) | **GET** / | OpenAPI description (this document)
+*PostgRestApi.RpcArmorApi* | [**rpcArmorPost**](docs/RpcArmorApi.md#rpcArmorPost) | **POST** /rpc/armor | 
+*PostgRestApi.RpcCryptApi* | [**rpcCryptPost**](docs/RpcCryptApi.md#rpcCryptPost) | **POST** /rpc/crypt | 
+*PostgRestApi.RpcDearmorApi* | [**rpcDearmorPost**](docs/RpcDearmorApi.md#rpcDearmorPost) | **POST** /rpc/dearmor | 
+*PostgRestApi.RpcDecryptApi* | [**rpcDecryptPost**](docs/RpcDecryptApi.md#rpcDecryptPost) | **POST** /rpc/decrypt | 
+*PostgRestApi.RpcDecryptIvApi* | [**rpcDecryptIvPost**](docs/RpcDecryptIvApi.md#rpcDecryptIvPost) | **POST** /rpc/decrypt_iv | 
+*PostgRestApi.RpcDigestApi* | [**rpcDigestPost**](docs/RpcDigestApi.md#rpcDigestPost) | **POST** /rpc/digest | 
+*PostgRestApi.RpcEncryptApi* | [**rpcEncryptPost**](docs/RpcEncryptApi.md#rpcEncryptPost) | **POST** /rpc/encrypt | 
+*PostgRestApi.RpcEncryptIvApi* | [**rpcEncryptIvPost**](docs/RpcEncryptIvApi.md#rpcEncryptIvPost) | **POST** /rpc/encrypt_iv | 
+*PostgRestApi.RpcGenRandomBytesApi* | [**rpcGenRandomBytesPost**](docs/RpcGenRandomBytesApi.md#rpcGenRandomBytesPost) | **POST** /rpc/gen_random_bytes | 
+*PostgRestApi.RpcGenRandomUuidApi* | [**rpcGenRandomUuidPost**](docs/RpcGenRandomUuidApi.md#rpcGenRandomUuidPost) | **POST** /rpc/gen_random_uuid | 
+*PostgRestApi.RpcGenSaltApi* | [**rpcGenSaltPost**](docs/RpcGenSaltApi.md#rpcGenSaltPost) | **POST** /rpc/gen_salt | 
+*PostgRestApi.RpcHmacApi* | [**rpcHmacPost**](docs/RpcHmacApi.md#rpcHmacPost) | **POST** /rpc/hmac | 
+*PostgRestApi.RpcLoginApi* | [**rpcLoginPost**](docs/RpcLoginApi.md#rpcLoginPost) | **POST** /rpc/login | 
+*PostgRestApi.RpcPgpArmorHeadersApi* | [**rpcPgpArmorHeadersPost**](docs/RpcPgpArmorHeadersApi.md#rpcPgpArmorHeadersPost) | **POST** /rpc/pgp_armor_headers | 
+*PostgRestApi.RpcPgpKeyIdApi* | [**rpcPgpKeyIdPost**](docs/RpcPgpKeyIdApi.md#rpcPgpKeyIdPost) | **POST** /rpc/pgp_key_id | 
+*PostgRestApi.RpcPgpPubDecryptApi* | [**rpcPgpPubDecryptPost**](docs/RpcPgpPubDecryptApi.md#rpcPgpPubDecryptPost) | **POST** /rpc/pgp_pub_decrypt | 
+*PostgRestApi.RpcPgpPubDecryptByteaApi* | [**rpcPgpPubDecryptByteaPost**](docs/RpcPgpPubDecryptByteaApi.md#rpcPgpPubDecryptByteaPost) | **POST** /rpc/pgp_pub_decrypt_bytea | 
+*PostgRestApi.RpcPgpPubEncryptApi* | [**rpcPgpPubEncryptPost**](docs/RpcPgpPubEncryptApi.md#rpcPgpPubEncryptPost) | **POST** /rpc/pgp_pub_encrypt | 
+*PostgRestApi.RpcPgpPubEncryptByteaApi* | [**rpcPgpPubEncryptByteaPost**](docs/RpcPgpPubEncryptByteaApi.md#rpcPgpPubEncryptByteaPost) | **POST** /rpc/pgp_pub_encrypt_bytea | 
+*PostgRestApi.RpcPgpSymDecryptApi* | [**rpcPgpSymDecryptPost**](docs/RpcPgpSymDecryptApi.md#rpcPgpSymDecryptPost) | **POST** /rpc/pgp_sym_decrypt | 
+*PostgRestApi.RpcPgpSymDecryptByteaApi* | [**rpcPgpSymDecryptByteaPost**](docs/RpcPgpSymDecryptByteaApi.md#rpcPgpSymDecryptByteaPost) | **POST** /rpc/pgp_sym_decrypt_bytea | 
+*PostgRestApi.RpcPgpSymEncryptApi* | [**rpcPgpSymEncryptPost**](docs/RpcPgpSymEncryptApi.md#rpcPgpSymEncryptPost) | **POST** /rpc/pgp_sym_encrypt | 
+*PostgRestApi.RpcPgpSymEncryptByteaApi* | [**rpcPgpSymEncryptByteaPost**](docs/RpcPgpSymEncryptByteaApi.md#rpcPgpSymEncryptByteaPost) | **POST** /rpc/pgp_sym_encrypt_bytea | 
+*PostgRestApi.RpcRequestPasswordResetApi* | [**rpcRequestPasswordResetPost**](docs/RpcRequestPasswordResetApi.md#rpcRequestPasswordResetPost) | **POST** /rpc/request_password_reset | 
+*PostgRestApi.RpcResetPasswordApi* | [**rpcResetPasswordPost**](docs/RpcResetPasswordApi.md#rpcResetPasswordPost) | **POST** /rpc/reset_password | 
+*PostgRestApi.RpcSignupApi* | [**rpcSignupPost**](docs/RpcSignupApi.md#rpcSignupPost) | **POST** /rpc/signup | 
+*PostgRestApi.RpcUpdateUsersApi* | [**rpcUpdateUsersPost**](docs/RpcUpdateUsersApi.md#rpcUpdateUsersPost) | **POST** /rpc/update_users | 
 
 
 ## Documentation for Models
 
- - [PostgRestApi.Addrs](docs/Addrs.md)
- - [PostgRestApi.Blocks](docs/Blocks.md)
- - [PostgRestApi.Contracts](docs/Contracts.md)
+ - [PostgRestApi.Args](docs/Args.md)
+ - [PostgRestApi.Args1](docs/Args1.md)
+ - [PostgRestApi.Args2](docs/Args2.md)
+ - [PostgRestApi.Args3](docs/Args3.md)
 
 
 ## Documentation for Authorization

@@ -17,14 +17,39 @@ from __future__ import absolute_import
 
 # import apis into sdk package
 from swagger_client.api.introspection_api import IntrospectionApi
-from swagger_client.api.addrs_api import AddrsApi
-from swagger_client.api.blocks_api import BlocksApi
-from swagger_client.api.contracts_api import ContractsApi
+from swagger_client.api._rpc_armor_api import RpcArmorApi
+from swagger_client.api._rpc_crypt_api import RpcCryptApi
+from swagger_client.api._rpc_dearmor_api import RpcDearmorApi
+from swagger_client.api._rpc_decrypt_api import RpcDecryptApi
+from swagger_client.api._rpc_decrypt_iv_api import RpcDecryptIvApi
+from swagger_client.api._rpc_digest_api import RpcDigestApi
+from swagger_client.api._rpc_encrypt_api import RpcEncryptApi
+from swagger_client.api._rpc_encrypt_iv_api import RpcEncryptIvApi
+from swagger_client.api._rpc_gen_random_bytes_api import RpcGenRandomBytesApi
+from swagger_client.api._rpc_gen_random_uuid_api import RpcGenRandomUuidApi
+from swagger_client.api._rpc_gen_salt_api import RpcGenSaltApi
+from swagger_client.api._rpc_hmac_api import RpcHmacApi
+from swagger_client.api._rpc_login_api import RpcLoginApi
+from swagger_client.api._rpc_pgp_armor_headers_api import RpcPgpArmorHeadersApi
+from swagger_client.api._rpc_pgp_key_id_api import RpcPgpKeyIdApi
+from swagger_client.api._rpc_pgp_pub_decrypt_api import RpcPgpPubDecryptApi
+from swagger_client.api._rpc_pgp_pub_decrypt_bytea_api import RpcPgpPubDecryptByteaApi
+from swagger_client.api._rpc_pgp_pub_encrypt_api import RpcPgpPubEncryptApi
+from swagger_client.api._rpc_pgp_pub_encrypt_bytea_api import RpcPgpPubEncryptByteaApi
+from swagger_client.api._rpc_pgp_sym_decrypt_api import RpcPgpSymDecryptApi
+from swagger_client.api._rpc_pgp_sym_decrypt_bytea_api import RpcPgpSymDecryptByteaApi
+from swagger_client.api._rpc_pgp_sym_encrypt_api import RpcPgpSymEncryptApi
+from swagger_client.api._rpc_pgp_sym_encrypt_bytea_api import RpcPgpSymEncryptByteaApi
+from swagger_client.api._rpc_request_password_reset_api import RpcRequestPasswordResetApi
+from swagger_client.api._rpc_reset_password_api import RpcResetPasswordApi
+from swagger_client.api._rpc_signup_api import RpcSignupApi
+from swagger_client.api._rpc_update_users_api import RpcUpdateUsersApi
 
 # import ApiClient
 from swagger_client.api_client import ApiClient
 from swagger_client.configuration import Configuration
 # import models into sdk package
-from swagger_client.models.addrs import Addrs
-from swagger_client.models.blocks import Blocks
-from swagger_client.models.contracts import Contracts
+from swagger_client.models.args import Args
+from swagger_client.models.args_1 import Args1
+from swagger_client.models.args_2 import Args2
+from swagger_client.models.args_3 import Args3

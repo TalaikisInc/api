@@ -54,18 +54,13 @@ Please follow the [installation](#installation) procedure and then run the follo
 # Load the gem
 require 'swagger_client'
 
-api_instance = SwaggerClient::AddrsApi.new
-
-opts = { 
-  addr: "addr_example", # String | 
-  balance: "balance_example", # String | 
-  prefer: "prefer_example" # String | Preference
-}
+api_instance = SwaggerClient::IntrospectionApi.new
 
 begin
-  api_instance.addrs_delete(opts)
+  #OpenAPI description (this document)
+  api_instance.root_get
 rescue SwaggerClient::ApiError => e
-  puts "Exception when calling AddrsApi->addrs_delete: #{e}"
+  puts "Exception when calling IntrospectionApi->root_get: #{e}"
 end
 
 ```
@@ -76,26 +71,42 @@ All URIs are relative to *http://0.0.0.0:3000*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*SwaggerClient::AddrsApi* | [**addrs_delete**](docs/AddrsApi.md#addrs_delete) | **DELETE** /addrs | 
-*SwaggerClient::AddrsApi* | [**addrs_get**](docs/AddrsApi.md#addrs_get) | **GET** /addrs | 
-*SwaggerClient::AddrsApi* | [**addrs_patch**](docs/AddrsApi.md#addrs_patch) | **PATCH** /addrs | 
-*SwaggerClient::AddrsApi* | [**addrs_post**](docs/AddrsApi.md#addrs_post) | **POST** /addrs | 
-*SwaggerClient::BlocksApi* | [**blocks_delete**](docs/BlocksApi.md#blocks_delete) | **DELETE** /blocks | 
-*SwaggerClient::BlocksApi* | [**blocks_get**](docs/BlocksApi.md#blocks_get) | **GET** /blocks | 
-*SwaggerClient::BlocksApi* | [**blocks_patch**](docs/BlocksApi.md#blocks_patch) | **PATCH** /blocks | 
-*SwaggerClient::BlocksApi* | [**blocks_post**](docs/BlocksApi.md#blocks_post) | **POST** /blocks | 
-*SwaggerClient::ContractsApi* | [**contracts_delete**](docs/ContractsApi.md#contracts_delete) | **DELETE** /contracts | 
-*SwaggerClient::ContractsApi* | [**contracts_get**](docs/ContractsApi.md#contracts_get) | **GET** /contracts | 
-*SwaggerClient::ContractsApi* | [**contracts_patch**](docs/ContractsApi.md#contracts_patch) | **PATCH** /contracts | 
-*SwaggerClient::ContractsApi* | [**contracts_post**](docs/ContractsApi.md#contracts_post) | **POST** /contracts | 
 *SwaggerClient::IntrospectionApi* | [**root_get**](docs/IntrospectionApi.md#root_get) | **GET** / | OpenAPI description (this document)
+*SwaggerClient::RpcArmorApi* | [**rpc_armor_post**](docs/RpcArmorApi.md#rpc_armor_post) | **POST** /rpc/armor | 
+*SwaggerClient::RpcCryptApi* | [**rpc_crypt_post**](docs/RpcCryptApi.md#rpc_crypt_post) | **POST** /rpc/crypt | 
+*SwaggerClient::RpcDearmorApi* | [**rpc_dearmor_post**](docs/RpcDearmorApi.md#rpc_dearmor_post) | **POST** /rpc/dearmor | 
+*SwaggerClient::RpcDecryptApi* | [**rpc_decrypt_post**](docs/RpcDecryptApi.md#rpc_decrypt_post) | **POST** /rpc/decrypt | 
+*SwaggerClient::RpcDecryptIvApi* | [**rpc_decrypt_iv_post**](docs/RpcDecryptIvApi.md#rpc_decrypt_iv_post) | **POST** /rpc/decrypt_iv | 
+*SwaggerClient::RpcDigestApi* | [**rpc_digest_post**](docs/RpcDigestApi.md#rpc_digest_post) | **POST** /rpc/digest | 
+*SwaggerClient::RpcEncryptApi* | [**rpc_encrypt_post**](docs/RpcEncryptApi.md#rpc_encrypt_post) | **POST** /rpc/encrypt | 
+*SwaggerClient::RpcEncryptIvApi* | [**rpc_encrypt_iv_post**](docs/RpcEncryptIvApi.md#rpc_encrypt_iv_post) | **POST** /rpc/encrypt_iv | 
+*SwaggerClient::RpcGenRandomBytesApi* | [**rpc_gen_random_bytes_post**](docs/RpcGenRandomBytesApi.md#rpc_gen_random_bytes_post) | **POST** /rpc/gen_random_bytes | 
+*SwaggerClient::RpcGenRandomUuidApi* | [**rpc_gen_random_uuid_post**](docs/RpcGenRandomUuidApi.md#rpc_gen_random_uuid_post) | **POST** /rpc/gen_random_uuid | 
+*SwaggerClient::RpcGenSaltApi* | [**rpc_gen_salt_post**](docs/RpcGenSaltApi.md#rpc_gen_salt_post) | **POST** /rpc/gen_salt | 
+*SwaggerClient::RpcHmacApi* | [**rpc_hmac_post**](docs/RpcHmacApi.md#rpc_hmac_post) | **POST** /rpc/hmac | 
+*SwaggerClient::RpcLoginApi* | [**rpc_login_post**](docs/RpcLoginApi.md#rpc_login_post) | **POST** /rpc/login | 
+*SwaggerClient::RpcPgpArmorHeadersApi* | [**rpc_pgp_armor_headers_post**](docs/RpcPgpArmorHeadersApi.md#rpc_pgp_armor_headers_post) | **POST** /rpc/pgp_armor_headers | 
+*SwaggerClient::RpcPgpKeyIdApi* | [**rpc_pgp_key_id_post**](docs/RpcPgpKeyIdApi.md#rpc_pgp_key_id_post) | **POST** /rpc/pgp_key_id | 
+*SwaggerClient::RpcPgpPubDecryptApi* | [**rpc_pgp_pub_decrypt_post**](docs/RpcPgpPubDecryptApi.md#rpc_pgp_pub_decrypt_post) | **POST** /rpc/pgp_pub_decrypt | 
+*SwaggerClient::RpcPgpPubDecryptByteaApi* | [**rpc_pgp_pub_decrypt_bytea_post**](docs/RpcPgpPubDecryptByteaApi.md#rpc_pgp_pub_decrypt_bytea_post) | **POST** /rpc/pgp_pub_decrypt_bytea | 
+*SwaggerClient::RpcPgpPubEncryptApi* | [**rpc_pgp_pub_encrypt_post**](docs/RpcPgpPubEncryptApi.md#rpc_pgp_pub_encrypt_post) | **POST** /rpc/pgp_pub_encrypt | 
+*SwaggerClient::RpcPgpPubEncryptByteaApi* | [**rpc_pgp_pub_encrypt_bytea_post**](docs/RpcPgpPubEncryptByteaApi.md#rpc_pgp_pub_encrypt_bytea_post) | **POST** /rpc/pgp_pub_encrypt_bytea | 
+*SwaggerClient::RpcPgpSymDecryptApi* | [**rpc_pgp_sym_decrypt_post**](docs/RpcPgpSymDecryptApi.md#rpc_pgp_sym_decrypt_post) | **POST** /rpc/pgp_sym_decrypt | 
+*SwaggerClient::RpcPgpSymDecryptByteaApi* | [**rpc_pgp_sym_decrypt_bytea_post**](docs/RpcPgpSymDecryptByteaApi.md#rpc_pgp_sym_decrypt_bytea_post) | **POST** /rpc/pgp_sym_decrypt_bytea | 
+*SwaggerClient::RpcPgpSymEncryptApi* | [**rpc_pgp_sym_encrypt_post**](docs/RpcPgpSymEncryptApi.md#rpc_pgp_sym_encrypt_post) | **POST** /rpc/pgp_sym_encrypt | 
+*SwaggerClient::RpcPgpSymEncryptByteaApi* | [**rpc_pgp_sym_encrypt_bytea_post**](docs/RpcPgpSymEncryptByteaApi.md#rpc_pgp_sym_encrypt_bytea_post) | **POST** /rpc/pgp_sym_encrypt_bytea | 
+*SwaggerClient::RpcRequestPasswordResetApi* | [**rpc_request_password_reset_post**](docs/RpcRequestPasswordResetApi.md#rpc_request_password_reset_post) | **POST** /rpc/request_password_reset | 
+*SwaggerClient::RpcResetPasswordApi* | [**rpc_reset_password_post**](docs/RpcResetPasswordApi.md#rpc_reset_password_post) | **POST** /rpc/reset_password | 
+*SwaggerClient::RpcSignupApi* | [**rpc_signup_post**](docs/RpcSignupApi.md#rpc_signup_post) | **POST** /rpc/signup | 
+*SwaggerClient::RpcUpdateUsersApi* | [**rpc_update_users_post**](docs/RpcUpdateUsersApi.md#rpc_update_users_post) | **POST** /rpc/update_users | 
 
 
 ## Documentation for Models
 
- - [SwaggerClient::Addrs](docs/Addrs.md)
- - [SwaggerClient::Blocks](docs/Blocks.md)
- - [SwaggerClient::Contracts](docs/Contracts.md)
+ - [SwaggerClient::Args](docs/Args.md)
+ - [SwaggerClient::Args1](docs/Args1.md)
+ - [SwaggerClient::Args2](docs/Args2.md)
+ - [SwaggerClient::Args3](docs/Args3.md)
 
 
 ## Documentation for Authorization
