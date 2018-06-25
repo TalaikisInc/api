@@ -12,6 +12,12 @@
 chmod +x install.sh
 ./install.sh
 ```
+## Generate JWT password
+
+```
+chmod +x gen_pass.sh
+./gen_pass.conf
+```
 
 ## Run
 
